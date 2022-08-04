@@ -2,6 +2,7 @@ import type { NextPage } from 'next'
 import Image from 'next/image'
 import styled from 'styled-components'
 import { BsArchive, BsChevronRight, BsEmojiSmile, BsEmojiSunglasses, BsGithub } from 'react-icons/bs';
+import Link from 'next/link';
 
 const LeftTab: NextPage = () => {
   return (
@@ -25,18 +26,22 @@ const LeftTab: NextPage = () => {
       <Name>KimMinSeok</Name>
       <SubName>Web Dev</SubName>
       <IconBox>
-        <img src="/images/icons/house.png" alt="" />
+        <Link href={"/"}>
+          <img src="/images/icons/house.png" alt="" />
+        </Link>
         <img src="/images/icons/search.png" alt="" />
         <img src="/images/icons/programmer.png" alt="" />
       </IconBox>
       <TabBox>
         <MainHead>MAIN</MainHead>
         <MainUl>
-          <li>
-            <BsEmojiSmile/> 
-            Skills
-            <BsChevronRight className='rightIcon'/>
-          </li>
+          <Link href={"/skills"}>
+            <li>
+              <BsEmojiSmile/> 
+              Skills
+              <BsChevronRight className='rightIcon'/>
+            </li>
+          </Link>
           <li>
             <BsArchive/>
             Archiving
@@ -68,7 +73,7 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  z-index: 99;
   @media (min-width: 1024px) {
     display: flex;
   }

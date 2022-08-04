@@ -3,10 +3,16 @@ import type { AppProps } from 'next/app'
 import "tailwindcss/tailwind.css";
 import "@fortawesome/fontawesome-svg-core/styles.css"; // import Font Awesome CSS
 import { config } from "@fortawesome/fontawesome-svg-core";
+import LeftTab from '../components/nav';
 config.autoAddCss = false;
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+  return (
+    <>
+      <LeftTab/>
+      <Component {...pageProps} />
+    </>
+  )
 }
 
 export default MyApp

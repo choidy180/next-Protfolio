@@ -10,7 +10,6 @@ const Home: NextPage = () => {
   })
   return (
     <Container>
-      <LeftTab/>
       <Box>
         <TopBox data-aos="fade-left">
           <video src="/images/background/ì__ì_¤ ì½_ë__ - 4733.mp4" autoPlay muted loop/>
@@ -126,4 +125,4 @@ const TopBox = styled.div`
   }
 `
 
-export default Home
+export default Home;
