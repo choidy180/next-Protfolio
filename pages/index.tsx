@@ -98,6 +98,31 @@ const TopBox = styled.div`
         width: 570px;
       }
     }
+    @media (max-width: 769px) {
+      h1 {
+        font-size: 22px;
+        height: 21px;
+        line-height: 22px;
+      }
+      @keyframes typing {
+        0%, 90%, 100%
+        {
+          width: 0;
+        }
+        30%, 60%
+        {
+          width: 300px;
+        }
+      }
+    }
+  }
+  @media (max-width: 769px) {
+    div::before{
+      top: -2px;
+      right: -8px;
+      width: 2px;
+      height: 22px;
+    }
   }
 `
 
