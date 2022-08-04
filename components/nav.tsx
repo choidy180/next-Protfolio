@@ -1,6 +1,7 @@
 import type { NextPage } from 'next'
 import Image from 'next/image'
 import styled from 'styled-components'
+import { BsArchive, BsChevronRight, BsEmojiSmile, BsEmojiSunglasses, BsGithub } from 'react-icons/bs';
 
 const LeftTab: NextPage = () => {
   return (
@@ -24,12 +25,35 @@ const LeftTab: NextPage = () => {
       <Name>KimMinSeok</Name>
       <SubName>Web Dev</SubName>
       <IconBox>
-        <Image
-          src={"/images/icons/house.png"}
-          width="24px"
-          height={"24px"}
-        />
+        <img src="/images/icons/house.png" alt="" />
+        <img src="/images/icons/search.png" alt="" />
+        <img src="/images/icons/programmer.png" alt="" />
       </IconBox>
+      <TabBox>
+        <MainHead>MAIN</MainHead>
+        <MainUl>
+          <li>
+            <BsEmojiSmile/> 
+            Skills
+            <BsChevronRight className='rightIcon'/>
+          </li>
+          <li>
+            <BsArchive/>
+            Archiving
+            <BsChevronRight className='rightIcon'/>
+          </li>
+          <li>
+            <BsGithub/>
+            Projects
+            <BsChevronRight className='rightIcon'/>
+          </li>
+          <li>
+            <BsEmojiSunglasses/>
+            Career
+            <BsChevronRight className='rightIcon'/>
+          </li>
+        </MainUl>
+      </TabBox>
       {/* <TestTab/> */}
     </Container>
   )
@@ -81,7 +105,7 @@ const ProfileBox = styled.div`
     width: 50px;
     height: 150px;
     background: linear-gradient(#52ACFF, #FFE32C);
-    animation: animate 2.5s linear infinite;
+    animation: iconup 2.5s linear infinite;
     border-radius: 16px;
     overflow: hidden;
   }
@@ -92,7 +116,7 @@ const ProfileBox = styled.div`
     border-radius: 16px;
     overflow: hidden;
   }
-  @keyframes animate 
+  @keyframes iconup 
   {
     0%
     {
@@ -124,13 +148,114 @@ const SubName = styled.p`
 `
 const IconBox = styled.div`
   width: 200px;
-  padding: 6px 14px;
+  padding: 8.5px 14px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
   margin-top: 18px;
   border-radius: 28px;
+  img {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+  }
+  img:hover{
+    animation: animate .5s linear infinite;
+  }
+  @keyframes animate {
+    0%{
+      transform: translateY(0px);
+    }
+    50%{
+      transform: translateY(-5px);
+    }
+    100%{
+      transform: translateY(0px);
+    }
+  }
+`
+const TabBox = styled.div`
+  width: 100%;
+  padding: 28px 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+`
+
+const MainHead = styled.p`
+  width: 100%;
+  font-size: 18px;
+  padding-left: 20px;
+  font-family: 'MabinogiClassicR';
+  animation: mainHeadClude .625s linear infinite;
+  @keyframes mainHeadClude {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-3px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+`
+const MainUl = styled.ul`
+  width: 100%;
+  font-size: 20px;
+  padding-top: 8px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  li {
+    width: 100%;
+    position: relative;
+    font-family: 'MabinogiClassicR';
+    cursor: pointer;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 50px;
+    padding-left: 44px;
+    transition: all .15s ease-in-out;
+    font-weight: 100;
+    border-radius: 5.5px;
+    overflow: hidden;
+    svg{
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      margin-top: -3px;
+    }
+    .rightIcon{
+      width: 14px;
+      height: 14px;
+      left: 230px !important;
+    }
+    border-bottom: 1px solid transparent;
+  }
+  li::after{
+    content: "";
+    position: absolute;
+    left: -100%;
+    bottom: 0px;
+    display: block;
+    width: 100%;
+    border-bottom: 1px solid #f00;
+    transition: all .7s ease;
+  }
+  li:hover{
+    background-color: #FFF7F4;
+    color: #fa4f3f;
+  }
+  li:hover:after{
+    left: 100%;
+  }
 `
 
 export default LeftTab;
