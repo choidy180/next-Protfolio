@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import LeftTab from '../components/nav'
 import AOS from "aos";
 import "aos/dist/aos.css";
+
 const Home: NextPage = () => {
   useEffect(()=>{
     AOS.init();
@@ -123,6 +124,13 @@ const TopBox = styled.div`
       height: 22px;
     }
   }
+`
+
+const ContentBox = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
 `
 
 export default Home;
