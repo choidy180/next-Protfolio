@@ -1,12 +1,24 @@
 import { NextPage } from "next";
 import styled from "styled-components";
+import { RiEmotionHappyLine } from "@react-icons/all-files/ri/RiEmotionHappyLine";
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Projects: NextPage = () => {
+  useEffect(()=>{
+    AOS.init();
+  })
   return (
     <Container>
       <TopBox>
         <BgBox/>
         <BlurBox/>
+        <TopBar>
+          <p className="name">김민석</p>
+          <RiEmotionHappyLine className="emoji"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <p style={{marginTop: "6px"}}>Web Developer</p>
+        </TopBar>
       </TopBox>
     </Container>
   )
@@ -26,6 +38,11 @@ const TopBox = styled.div`
   width: 100%;
   height: calc(100vh - 80px);
   overflow: hidden;
+  .emoji{
+    font-size: 38px;
+    color: #FFFFFF;
+    margin-top: -6px;
+  }
 `
 const BgBox = styled.div`
   position: absolute;
@@ -44,5 +61,21 @@ const BlurBox = styled.div`
   -webkit-backdrop-filter: blur(15px);
   backdrop-filter: blur(15px);
 `
-
+const TopBar = styled.div`
+  width: calc(100% - 60px);
+  padding: 14px;
+  padding-left: 144px;
+  background-color: #051D25;
+  margin-top: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  p {
+    font-size: 42px;
+    font-family: 'MabinogiClassicR';
+    color: #FFFFFF;
+  }
+`
 export default Projects;
