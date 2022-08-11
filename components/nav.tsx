@@ -47,11 +47,13 @@ const LeftTab: NextPage = () => {
             Archiving
             <BsChevronRight className='rightIcon'/>
           </li>
-          <li>
-            <BsGithub/>
-            Projects
-            <BsChevronRight className='rightIcon'/>
-          </li>
+          <Link href={"/projects"}>
+            <li>
+              <BsGithub/>
+              Projects
+              <BsChevronRight className='rightIcon'/>
+            </li>
+          </Link>
           <li>
             <BsEmojiSunglasses/>
             Career
