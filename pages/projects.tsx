@@ -4,6 +4,7 @@ import { RiEmotionHappyLine } from "@react-icons/all-files/ri/RiEmotionHappyLine
 import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import Image from "next/image";
 
 const Projects: NextPage = () => {
   useEffect(()=>{
@@ -14,11 +15,15 @@ const Projects: NextPage = () => {
       <TopBox>
         <BgBox/>
         <BlurBox/>
-        <HeadText data-aos="fade-right">
-          <p>끊임없이 설명하고<br/>부지런하게 실행하는<br/>개발자 김민석입니다</p>
+        <HeadText>
+          <p>끊임없이 설명하고 부지런하게 실행하는 개발자 김민석입니다</p>
         </HeadText>
-        <TopImageBox>
-
+        <TopImageBox data-aos="flip-up">
+          <Image
+            src={"/images/background/20220831095524.png"}
+            layout={"fill"}
+            objectFit={"cover"}
+          />
         </TopImageBox>
       </TopBox>
     </Container>
@@ -38,6 +43,10 @@ const Container = styled.div`
 const TopBox = styled.div`
   width: 100%;
   height: calc(100vh - 80px);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
   overflow: hidden;
   .emoji{
     font-size: 38px;
@@ -63,28 +72,31 @@ const BlurBox = styled.div`
   backdrop-filter: blur(15px);
 `
 const HeadText = styled.div`
-  width: calc(100% - 60px);
-  padding: 14px;
-  padding-left: 144px;
-  margin-top: 32px;
-  top: 40%;
-  transform: translateY(-50%);
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
+  max-width: 80%;
+  margin-top: 48px;
   p {
-    font-size: 42px;
+    font-size: 32px;
     color: #FFFFFF;
-    line-height: 52px;
+    line-height: 46px;
   }
 `
 const TopImageBox = styled.div`
-  width: 700px;
-  height: 400px;
-  background-color: red;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  right: 85px;
+  width: 60%;
+  height: 600px;
+  background-color: #000000;
+  margin-top: 48px;
+  &::after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: -20px;
+    left: -20px;
+    border: 1.4px solid #D7D7D7;
+    overflow: hidden;
+  }
+  @media (max-width: 769px) {
+    width: 80%;
+  }
 `
 export default Projects;
