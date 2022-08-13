@@ -14,11 +14,12 @@ const Projects: NextPage = () => {
       <TopBox>
         <BgBox/>
         <BlurBox/>
-        <TopBar>
-          <p className="name">김민석</p>
-          <RiEmotionHappyLine className="emoji"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <p style={{marginTop: "6px"}}>Web Developer</p>
-        </TopBar>
+        <HeadText data-aos="fade-right">
+          <p>끊임없이 설명하고<br/>부지런하게 실행하는<br/>개발자 김민석입니다</p>
+        </HeadText>
+        <TopImageBox>
+
+        </TopImageBox>
       </TopBox>
     </Container>
   )
@@ -61,21 +62,29 @@ const BlurBox = styled.div`
   -webkit-backdrop-filter: blur(15px);
   backdrop-filter: blur(15px);
 `
-const TopBar = styled.div`
+const HeadText = styled.div`
   width: calc(100% - 60px);
   padding: 14px;
   padding-left: 144px;
-  background-color: #051D25;
   margin-top: 32px;
-  left: 50%;
-  transform: translateX(-50%);
+  top: 40%;
+  transform: translateY(-50%);
   display: flex;
   justify-content: flex-start;
   align-items: center;
   p {
     font-size: 42px;
-    font-family: 'MabinogiClassicR';
     color: #FFFFFF;
+    line-height: 52px;
   }
+`
+const TopImageBox = styled.div`
+  width: 700px;
+  height: 400px;
+  background-color: red;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 85px;
 `
 export default Projects;

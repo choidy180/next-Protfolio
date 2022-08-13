@@ -144,14 +144,12 @@ const Name = styled.p`
   align-items: center;
   letter-spacing: -.4px;
   margin-top: 18px;
-  font-family: 'MabinogiClassicR';
   line-height: 20px;
 `
 const SubName = styled.p`
   font-size: 18px;
   color: rgb(52, 73, 94);
   line-height: 18px;
-  font-family: 'MabinogiClassicR';
 `
 const IconBox = styled.div`
   width: 200px;
@@ -195,7 +193,6 @@ const MainHead = styled.p`
   width: 100%;
   font-size: 18px;
   padding-left: 20px;
-  font-family: 'MabinogiClassicR';
   animation: mainHeadClude .625s linear infinite;
   @keyframes mainHeadClude {
     0% {
@@ -219,7 +216,6 @@ const MainUl = styled.ul`
   li {
     width: 100%;
     position: relative;
-    font-family: 'MabinogiClassicR';
     cursor: pointer;
     display: flex;
     justify-content: flex-start;
@@ -227,7 +223,7 @@ const MainUl = styled.ul`
     height: 50px;
     padding-left: 44px;
     transition: all .15s ease-in-out;
-    font-weight: 100;
+    font-weight: 500;
     border-radius: 5.5px;
     overflow: hidden;
     svg{
@@ -237,7 +233,6 @@ const MainUl = styled.ul`
       left: 20px;
       top: 50%;
       transform: translateY(-50%);
-      margin-top: -3px;
     }
     .rightIcon{
       width: 14px;
