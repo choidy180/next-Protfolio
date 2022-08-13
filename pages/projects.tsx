@@ -1,10 +1,11 @@
 import { NextPage } from "next";
 import styled from "styled-components";
 import { RiEmotionHappyLine } from "@react-icons/all-files/ri/RiEmotionHappyLine";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Image from "next/image";
+import { TypeAnimation } from 'react-type-animation';
 
 const Projects: NextPage = () => {
   useEffect(()=>{
@@ -15,9 +16,19 @@ const Projects: NextPage = () => {
       <TopBox>
         <BgBox/>
         <BlurBox/>
-        <HeadText>
-          <p>끊임없이 설명하고 부지런하게 실행하는 개발자 김민석입니다</p>
-        </HeadText>
+        <TypeAnimation
+          sequence={[
+            '안녕하세요 :) 설명하는 개발자 김민석입니다.', // Types 'One'
+            5000, // Waits 5s
+            '',
+            1000, // Waits 2s
+          ]}
+          wrapper="div"
+          speed={1}
+          cursor={true}
+          repeat={Infinity}
+          style={{ fontSize: '2em', color: '#fff', marginTop: '48px'}}
+        />
         <TopImageBox data-aos="flip-up">
           <Image
             src={"/images/background/20220831095524.png"}
