@@ -16,19 +16,9 @@ const Projects: NextPage = () => {
       <TopBox>
         <BgBox/>
         <BlurBox/>
-        <TypeAnimation
-          sequence={[
-            '안녕하세요 :) 설명하는 개발자 김민석입니다.', // Types 'One'
-            5000, // Waits 5s
-            '',
-            1000, // Waits 2s
-          ]}
-          wrapper="div"
-          speed={1}
-          cursor={true}
-          repeat={Infinity}
-          style={{ fontSize: '2em', color: '#fff', marginTop: '48px'}}
-        />
+        <HeadText>
+          <h1>안녕하세요 :) 설명하는 개발자 김민석입니다.</h1>
+        </HeadText>
         <TopImageBox data-aos="flip-up">
           <Image
             src={"/images/background/20220831095524.png"}
@@ -85,10 +75,23 @@ const BlurBox = styled.div`
 const HeadText = styled.div`
   max-width: 80%;
   margin-top: 48px;
-  p {
+  h1 {
     font-size: 32px;
+    height: 38px;
+    overflow: hidden;
     color: #FFFFFF;
     line-height: 46px;
+    animation: typing 11s steps(28) infinite;
+  }
+  @keyframes typing {
+    0%, 90%, 100%
+    {
+      width: 0;
+    }
+    30%, 60%
+    {
+      width: 570px;
+    }
   }
 `
 const TopImageBox = styled.div`

@@ -35,6 +35,19 @@ const LeftTab: NextPage = () => {
       <TabBox>
         <MainHead>MAIN</MainHead>
         <MainUl>
+          <Link href={"/profile"}>
+            <li>
+              <BsArchive/>
+              Profile
+              <BsChevronRight className='rightIcon'/>
+            </li>
+          </Link><Link href={"/profile"}>
+            <li>
+              <BsArchive/>  
+              Profile
+              <BsChevronRight className='rightIcon'/>
+            </li>
+          </Link>
           <Link href={"/skills"}>
             <li>
               <BsEmojiSmile/> 
@@ -42,11 +55,6 @@ const LeftTab: NextPage = () => {
               <BsChevronRight className='rightIcon'/>
             </li>
           </Link>
-          <li>
-            <BsArchive/>
-            Archiving
-            <BsChevronRight className='rightIcon'/>
-          </li>
           <Link href={"/projects"}>
             <li>
               <BsGithub/>
