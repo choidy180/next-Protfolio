@@ -7,9 +7,8 @@ import Image from "next/image";
 import { AutoHeightImageWrapper } from "../components/AutoHeightImageWrapper";
 import { FiGithub } from "@react-icons/all-files/fi/FiGithub"
 import { RiVimeoLine } from "@react-icons/all-files/ri/RiVimeoLine"
-import Link from "next/link";
 
-const Projects: NextPage = () => {
+const Profile: NextPage = () => {
   useEffect(()=>{
     AOS.init();
   })
@@ -21,7 +20,7 @@ const Projects: NextPage = () => {
         <HeadText>
           <h1 className="max">안녕하세요 :) <br/>설명하는 개발자 김민석입니다.</h1>
           <h1 className="min">안녕하세요 :) 설명하는 개발자 김민석입니다.</h1>
-          <div className="btnBox">
+          <div className="btnBox" id="mobileHead">
             <button onClick={()=> window.open('https://github.com/choidy180')}><FiGithub/>GITHUB</button>
             <button onClick={()=> window.open('https://velog.io/@choidy180')}><RiVimeoLine/>BLOG</button>
           </div>
@@ -40,6 +39,12 @@ const Projects: NextPage = () => {
             />
           </AutoHeightImageWrapper>
         </ImageBox>
+        <HeadText className="mobileHead">
+          <div className="btnBox">
+            <button onClick={()=> window.open('https://github.com/choidy180')}><FiGithub/>GITHUB</button>
+            <button onClick={()=> window.open('https://velog.io/@choidy180')}><RiVimeoLine/>BLOG</button>
+          </div>
+        </HeadText>
       </TopBox>
     </Container>
   )
@@ -71,6 +76,14 @@ const TopBox = styled.div`
   .min{
     display: none;
   }
+  #mobileHead{
+    display: flex;
+  }
+  .mobileHead{
+    width: 100%;
+    display: none;
+    margin-top: 0;
+  }
   @media (max-width: 1024px) {
     flex-direction: column;
     justify-content: flex-start;
@@ -79,6 +92,12 @@ const TopBox = styled.div`
     }
     .min{
       display: block;
+    }
+    #mobileHead{
+      display: none;
+    }
+    .mobileHead{
+      display: flex;
     }
   }
 `
@@ -234,4 +253,4 @@ const ImageBox = styled.div`
     width: 80%;
   }
 `
-export default Projects;
+export default Profile;

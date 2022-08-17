@@ -1,0 +1,237 @@
+import { NextPage } from "next";
+import Image from "next/image";
+import { useEffect, useState } from "react";
+import styled from "styled-components";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
+const Projects: NextPage = () => {
+  const [scrollY, setScrollY] = useState<Boolean>(true);
+  useEffect(()=> {
+    AOS.init();
+    window.addEventListener('scroll', (event) => {
+      if(document.documentElement.scrollTop === 0){
+        setScrollY(true);
+      } else {
+        setScrollY(false);
+      }
+    })
+  })
+  return (
+    <Container>
+      <FirstBox>
+        <h1 
+          className="topH1" 
+          style={scrollY ? {transform : 'scale(100%)', height: '50px'} : {transform : 'scale(0)',  height: '0px'}
+        }>
+          EXPLANATORY DEVELOPER
+        </h1>
+        <ProjectNav
+          style={scrollY ? {paddingTop: '18px'} : {paddingTop: '12px'}}
+        >
+          <span>JAVASCRIPT</span>
+          <span>NODE.JS</span>
+          <span>REACT.JS</span>
+          <span>DESIGN</span>
+        </ProjectNav>
+        <video src="/images/background/ì__ì_¤ ì½_ë__ - 4733.mp4" autoPlay muted loop/>
+        <p className="title">Intuitive And Efficient Development</p>
+        <span className="subTitle">직관적이고 효율적인 개발을 지향합니다</span>
+      </FirstBox>
+      <ContentBox>
+        <Content>
+          <ContentImageBox>
+            <div data-aos="zoom-in-up">
+              <Image
+                src={'/images/content/file-20180820-30593-1nxanpj.png'}
+                layout='fill'
+                objectFit='cover'
+              />
+            </div>
+          </ContentImageBox>
+        <p className="title" data-aos="zoom-out">실시간 날씨 정보를 활용한 코디 추천 웹사이트</p>
+        <p className="skills" data-aos="fade-up" data-aos-duration="500">
+          <span className="skill">ReactJS</span>
+          <span className="skill">MySQL</span>
+          <span className="skill">JavaScript</span>
+          <span className="skill">OpenWeather</span>
+        </p>
+        <p className="maker" data-aos="fade-up" data-aos-duration="500">
+          팀 구성 - 김민석, 황채영(디자이너)
+        </p>
+        </Content>
+      </ContentBox>
+      <div style={{width:'100vw', height:'105vh'}}>
+
+      </div>
+    </Container>
+  )
+}
+
+const Container = styled.div`
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  @media (min-width: 1024px) {
+    padding-left: 270px;
+  }
+`
+const FirstBox = styled.div`
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .topH1{
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    font-size: 32px;
+    font-weight: 500;
+    transition: all .3s ease-in-out;
+    letter-spacing: -.8px;
+    background-color: rgba(97,186,255,1);
+    background: radial-gradient( circle farthest-corner at 10% 20%,  rgba(97,186,255,1) 0%, rgba(166,239,253,1) 90.1% );
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: #000;
+    animation: shine 6s linear infinite;
+  }
+  video {
+    width: 100%;
+    height: 60vh;
+    object-fit: cover;
+    filter: brightness(60%);
+  }
+  .title{
+    position: absolute;
+    left: 24px;
+    bottom: 48px;
+    z-index: 999;
+    color: white;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    font-size: 52px;
+    background-color: #FFDEE9;
+    background: linear-gradient(270deg, #FFDEE9 0%, #B5FFFC 100%);
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -1.8px;
+    color: #000;
+    animation: shine 4s linear infinite;
+  }
+  .subTitle{
+    position: absolute;
+    left: 24px;
+    bottom: 8px;
+    z-index: 999;
+    color: white;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    font-size: 36px;
+  }
+  @keyframes shine {
+    to {
+      background-position: 200% center;
+    }
+  }
+`
+const ProjectNav = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+  padding: 12px;
+  span {
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: -.4px;
+    padding: 0px 0;
+    cursor: pointer;
+    transition: all .1s ease-in-out;
+    border-bottom: 2px solid transparent;
+    ::after{
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      transform: translateX(-50%);
+      width: 0;
+      height: 2px;
+      background-color: #141414;
+      transition: all .22s ease-in-out;
+    }
+    &:hover{
+      ::after{
+        width: 100%;
+      }
+    }
+  }
+`
+const ContentBox = styled.div`
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding-top: 24px;
+`
+const Content = styled.div`
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  .title{
+    font-size: 24px;
+    letter-spacing: -.6px;
+    word-spacing: 1.2px;
+    margin-top: 6px;
+  }
+  .skills{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 6px;
+    margin-top: 6px;
+  }
+  .skill{
+    background-color: #E9ECF2;
+    padding: 0px 8px;
+    border-radius: 4px;
+  }
+  .maker {
+    padding-left: 2px;
+    margin-top: 8px;
+    font-size: 18px;
+  }
+`
+const ContentImageBox = styled.div`
+  width: 100%;
+  padding-top: 60%;
+  div {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    img {
+      transition: all .2s ease-in-out;
+    }
+    img:hover{
+      transform: scale(1.04);
+      cursor: pointer;
+    }
+  }
+`
+export default Projects;

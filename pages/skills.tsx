@@ -117,11 +117,18 @@ const ContentTitle = styled.p`
       transform: translateY(-3px);
     }
   }
+  @media (max-width: 1024px) {
+    justify-content: center;
+  }
 `
 const ContentSubTitle = styled.p`
   width: 100%;
   color: #7b7b7b;
   letter-spacing: -.6px;
+  display: flex;
+  @media (max-width: 1024px) {
+    justify-content: center;
+  }
 `
 
 const ContentBox = styled.div`
@@ -132,6 +139,9 @@ const ContentBox = styled.div`
   width: 100%;
   padding: 20px 0;
   gap: 20px;
+  @media (max-width: 1024px) {
+    justify-content: center;
+  }
 `
 const SkillBox = styled.div`
   padding: 12px 20px;

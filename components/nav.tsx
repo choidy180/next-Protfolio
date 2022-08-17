@@ -49,10 +49,10 @@ const LeftTab: NextPage = () => {
               <BsChevronRight className='rightIcon'/>
             </li>
           </Link>
-          <Link href={"/projects"}>
+          <Link href={"/project"}>
             <li>
               <BsGithub/>
-              Projects
+              Project
               <BsChevronRight className='rightIcon'/>
             </li>
           </Link>
