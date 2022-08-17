@@ -41,12 +41,6 @@ const LeftTab: NextPage = () => {
               Profile
               <BsChevronRight className='rightIcon'/>
             </li>
-          </Link><Link href={"/profile"}>
-            <li>
-              <BsArchive/>  
-              Profile
-              <BsChevronRight className='rightIcon'/>
-            </li>
           </Link>
           <Link href={"/skills"}>
             <li>
@@ -62,11 +56,13 @@ const LeftTab: NextPage = () => {
               <BsChevronRight className='rightIcon'/>
             </li>
           </Link>
-          <li>
-            <BsEmojiSunglasses/>
-            Career
-            <BsChevronRight className='rightIcon'/>
-          </li>
+          <Link href={"/career"}>
+            <li>
+              <BsEmojiSunglasses/>
+              Career
+              <BsChevronRight className='rightIcon'/>
+            </li>
+          </Link>
         </MainUl>
       </TabBox>
       {/* <TestTab/> */}
@@ -83,6 +79,7 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  background-color: #FFFFFF;
   z-index: 99;
   @media (min-width: 1024px) {
     display: flex;
