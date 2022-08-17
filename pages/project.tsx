@@ -4,9 +4,86 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { FiGithub } from "@react-icons/all-files/fi/FiGithub";
+import { FiLink } from "@react-icons/all-files/fi/FiLink";
+import { AiOutlineRight } from "@react-icons/all-files/ai/AiOutlineRight";
+
+interface contentInterface {
+  img: string,
+  title: string,
+  stack: string[],
+  maker: string,
+  link: string[],
+  githubSrc: string,
+  velogSrc: string,
+  src: string,
+}
 
 const Projects: NextPage = () => {
   const [scrollY, setScrollY] = useState<Boolean>(true);
+  const projectContent:contentInterface[] = [
+    {
+      img: '/images/content/file-20180820-30593-1nxanpj.png',
+      title: '실시간 날씨 정보를 활용한 코디 추천 웹사이트',
+      stack: ["ReactJS", "MySQL", "JavaScript", "OpenWeather"],
+      maker: "김민석, 황채영(디자이너)",
+      link: ["github"],
+      githubSrc: "https://github.com/choidy180?tab=repositories",
+      velogSrc: "",
+      src: ""
+
+    },
+    {
+      img: '/images/content/11-bookstores-6-three-lives-2.w710.h473.2x.jpg',
+      title: '온라인 서점 사이트',
+      stack: ["Node.js", "JavaScript", "MySQL", "EJS", "JWT", "SQL"],
+      maker: "김민석",
+      link: ["github"],
+      githubSrc: "https://github.com/choidy180?tab=repositories",
+      velogSrc: "",
+      src: ""
+    },
+    {
+      img: '/images/content/99AC933F5B021AE611.jpg',
+      title: '면접 플랫폼 데이터 수집 시스템 구축',
+      stack: ["PHP","C#","Phthon","BeautifulSoup"],
+      maker: "김민석",
+      link: ["company"],
+      githubSrc: "",
+      velogSrc: "",
+      src: "https://highbuff.com/interview.php"
+    },
+    {
+      img: '/images/content/videoplayer123910.jpg',
+      title: '안드로이드 비디오플레이어앱',
+      stack: ["Android", "FFmpeg", "Ndk"],
+      maker: "김민석",
+      link: ["github"],
+      githubSrc: "https://github.com/choidy180/2021_android_video_player",
+      velogSrc: "",
+      src: ""
+    },
+    {
+      img: '/images/content/population.jpg',
+      title: 'Echarts',
+      stack: ["PHP", "JavaScript", "Echarts"],
+      maker: "김민석",
+      link: ["github"],
+      githubSrc: "https://github.com/choidy180/echarts",
+      velogSrc: "",
+      src: ""
+    },
+    {
+      img: '/images/content/8fc78844-26c4-4753-8272-ccde87a07841_2000_1333.webp',
+      title: '온라인 전시회 플랫폼(2021)',
+      stack: ["JavaScript", "YOLO", "Python", "Node.js", "MySQL"],
+      maker: "김민석",
+      link: ["github"],
+      githubSrc: "https://github.com/choidy180/nodejs_an_online_exhibition",
+      velogSrc: "",
+      src: ""
+    },
+  ]
   useEffect(()=> {
     AOS.init();
     window.addEventListener('scroll', (event) => {
@@ -39,31 +116,45 @@ const Projects: NextPage = () => {
         <span className="subTitle">직관적이고 효율적인 개발을 지향합니다</span>
       </FirstBox>
       <ContentBox>
-        <Content>
-          <ContentImageBox>
-            <div data-aos="zoom-in-up">
-              <Image
-                src={'/images/content/file-20180820-30593-1nxanpj.png'}
-                layout='fill'
-                objectFit='cover'
-              />
+        {projectContent.map((content, i) => (
+          <Content key={i}>
+            <ContentImageBox>
+              <div data-aos="zoom-in-up">
+                <Image
+                  src={content.img}
+                  layout='fill'
+                  objectFit='cover'
+                />
+              </div>
+            </ContentImageBox>
+            <div data-aos="fade-up" data-aos-duration="500">
+              <p className="title">{content.title}</p>
+              <p className="skills">
+                {content.stack.map((stack, i) => (
+                  <span className="skill" key={i}>{stack}</span>
+                ))}
+              </p>
+              <p className="maker">
+                팀 구성 - {content.maker}
+              </p>
+              <p className="link">
+                {content.githubSrc && (
+                    <button className="github" onClick={()=> window.open(`${content.githubSrc}`)}>
+                      <FiGithub/>GitHub <AiOutlineRight style={{marginLeft: "22px"}}/>
+                    </button>
+                  )
+                }
+                {content.src && (
+                    <button className="github" onClick={()=> window.open(`${content.src}`)}>
+                      <FiLink/>Company <AiOutlineRight style={{marginLeft: "22px"}}/>
+                    </button>
+                  )
+                }
+              </p>
             </div>
-          </ContentImageBox>
-        <p className="title" data-aos="zoom-out">실시간 날씨 정보를 활용한 코디 추천 웹사이트</p>
-        <p className="skills" data-aos="fade-up" data-aos-duration="500">
-          <span className="skill">ReactJS</span>
-          <span className="skill">MySQL</span>
-          <span className="skill">JavaScript</span>
-          <span className="skill">OpenWeather</span>
-        </p>
-        <p className="maker" data-aos="fade-up" data-aos-duration="500">
-          팀 구성 - 김민석, 황채영(디자이너)
-        </p>
-        </Content>
+          </Content>
+        ))}
       </ContentBox>
-      <div style={{width:'100vw', height:'105vh'}}>
-
-      </div>
     </Container>
   )
 }
@@ -74,6 +165,7 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-bottom: 140px;
   @media (min-width: 1024px) {
     padding-left: 270px;
   }
@@ -179,28 +271,35 @@ const ProjectNav = styled.div`
   }
 `
 const ContentBox = styled.div`
-  width: 100%;
+  width: calc(100% - 40px);
   height: auto;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  flex-wrap: wrap;
+  justify-content: flex-start;
   align-items: center;
   padding-top: 24px;
+  gap: 30px;
+  row-gap: 70px;
 `
 const Content = styled.div`
-  width: 30%;
+  width: 31%;
+  min-width: 420px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
   .title{
+    width: 100%;
     font-size: 24px;
     letter-spacing: -.6px;
     word-spacing: 1.2px;
     margin-top: 6px;
   }
   .skills{
+    width: 100%;
     display: flex;
+    flex-wrap: wrap;
     justify-content: flex-start;
     align-items: center;
     gap: 6px;
@@ -215,6 +314,21 @@ const Content = styled.div`
     padding-left: 2px;
     margin-top: 8px;
     font-size: 18px;
+  }
+  .link {
+    margin-top: 24px;
+    button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 4px;
+      padding: 2px 8px;
+      border-radius: 8px;
+      background-color: rgb(223, 230, 233);
+    }
+  }
+  @media (max-width: 1024px) {
+
   }
 `
 const ContentImageBox = styled.div`

@@ -5,8 +5,8 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import Image from "next/image";
 import { AutoHeightImageWrapper } from "../components/AutoHeightImageWrapper";
-import { FiGithub } from "@react-icons/all-files/fi/FiGithub"
-import { RiVimeoLine } from "@react-icons/all-files/ri/RiVimeoLine"
+import { FiGithub } from "@react-icons/all-files/fi/FiGithub";
+import { RiVimeoLine } from "@react-icons/all-files/ri/RiVimeoLine";
 
 const Profile: NextPage = () => {
   useEffect(()=>{
