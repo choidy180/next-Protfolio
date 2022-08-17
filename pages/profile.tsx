@@ -5,6 +5,9 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import Image from "next/image";
 import { AutoHeightImageWrapper } from "../components/AutoHeightImageWrapper";
+import { FiGithub } from "@react-icons/all-files/fi/FiGithub"
+import { RiVimeoLine } from "@react-icons/all-files/ri/RiVimeoLine"
+import Link from "next/link";
 
 const Projects: NextPage = () => {
   useEffect(()=>{
@@ -19,7 +22,8 @@ const Projects: NextPage = () => {
           <h1 className="max">안녕하세요 :) <br/>설명하는 개발자 김민석입니다.</h1>
           <h1 className="min">안녕하세요 :) 설명하는 개발자 김민석입니다.</h1>
           <div className="btnBox">
-            <button>GitHub</button>
+            <button onClick={()=> window.open('https://github.com/choidy180')}><FiGithub/>GITHUB</button>
+            <button onClick={()=> window.open('https://velog.io/@choidy180')}><RiVimeoLine/>BLOG</button>
           </div>
         </HeadText>
         <ImageBox data-aos="flip-left">
@@ -123,7 +127,7 @@ const HeadText = styled.div`
   }
   div{
     width: 90%;
-    max-width: 460px;
+    max-width: 440px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -131,14 +135,24 @@ const HeadText = styled.div`
     gap: 18px;
     padding-top: 24px;
     button{
+      display: flex;
+      justify-content: center;
+      align-items: center;
       width: 100%;
-      color: #FFFFFF;
-      border: 1.4px solid #FFFFFF;
       padding: 8.5px 0;
       font-size: 24px;
-      border-radius: 12px;
+      border: 2px solid #FFF;
+      outline: none;
+      color: #fff;
+      background: transparent;
+      cursor: pointer;
+      position: relative;
+      z-index: 0;
+      border-radius: 10px;
+      gap: 4px;
     }
-    button::before{
+    button:before {
+      content: '';
       background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
       position: absolute;
       top: -2px;
