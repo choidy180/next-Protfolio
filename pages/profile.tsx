@@ -18,8 +18,8 @@ const Profile: NextPage = () => {
         <BgBox/>
         <BlurBox/>
         <HeadText>
-          <h1 className="max">안녕하세요 :) <br/>설명하는 개발자 김민석입니다.</h1>
-          <h1 className="min">안녕하세요 :) 설명하는 개발자 김민석입니다.</h1>
+          <h1 className="max">안녕하세요. <br/>설명하는 개발자 김민석입니다.</h1>
+          <h1 className="min">안녕하세요. 설명하는 개발자 김민석입니다.</h1>
           <div className="btnBox" id="mobileHead">
             <button onClick={()=> window.open('https://github.com/choidy180')}><FiGithub/>GITHUB</button>
             <button onClick={()=> window.open('https://velog.io/@choidy180')}><RiVimeoLine/>BLOG</button>
@@ -75,6 +75,8 @@ const TopBox = styled.div`
   }
   .min{
     display: none;
+    text-align: center;
+    line-height: 32px;
   }
   #mobileHead{
     display: flex;
@@ -236,7 +238,7 @@ const ImageBox = styled.div`
   div{
     width: 90%;
   }
-  span::after{
+  /* span::after{
     content: '';
     position: absolute;
     width: 100%;
@@ -245,7 +247,7 @@ const ImageBox = styled.div`
     left: -20px;
     border: 1.4px solid #D7D7D7;
     z-index: 9999;
-  }
+  } */
   @media (max-width: 1024px) {
     width: 70%;
   }

@@ -10,22 +10,22 @@ const Skills: NextPage = () => {
     AOS.init();
   })
   const skill = [
-    {name: "REACT", color: "#61DAFB", percent: "95",},
-    {name: "TYPESCRIPT", color: "#3077C6", percent: "87"},
-    {name: "AWS", color: "#FF9902", percent: "88"},
-    {name: "FIREBASE", color: "#FCCA3F", percent: "92"},
-    {name: "REACT-QUERY", color: "#F23E4F", percent: "93"},
-    {name: "REACT-ROUTER", color: "#EC4546", percent: "93"},
-    {name: "JAVASCRIPT", color: "#F7E017", percent: "98"},
-    {name: "NODE-JS", color: "#7DC327", percent: "94"},
-    {name: "HTML5", color: "#D84A24", percent: "99"},
-    {name: "CSS3", color: "#2465F1", percent: "99"},
-    {name: "MYSQL", color: "#016089", percent: "92"},
-    {name: "MARIADB", color: "#313E62", percent: "92"},
-    {name: "MONGO-DB", color: "#91DC50", percent: "88"},
-    {name: "SASS", color: "#CD669A", percent: "88"},
-    {name: "NEXTJS", color: "#000000", percent: "93"},
-    {name: "TAILWIND-CSS", color: "#00B8D5", percent: "93"},
+    {name: "REACT", color: "#61DAFB", percent: "95", link: "https://github.com/choidy180?tab=repositories&q=react&type=&language=&sort="},
+    {name: "TYPESCRIPT", color: "#3077C6", percent: "87", link: "https://github.com/choidy180?tab=repositories&q=&type=&language=typescript&sort="},
+    {name: "AWS", color: "#FF9902", percent: "88", link: ""},
+    {name: "FIREBASE", color: "#FCCA3F", percent: "92", link: ""},
+    {name: "REACT-QUERY", color: "#F23E4F", percent: "93", link: ""},
+    {name: "REACT-ROUTER", color: "#EC4546", percent: "93", link: ""},
+    {name: "JAVASCRIPT", color: "#F7E017", percent: "98", link: "https://github.com/choidy180?tab=repositories&q=&type=&language=javascript&sort="},
+    {name: "NODE-JS", color: "#7DC327", percent: "94", link: "https://github.com/choidy180?tab=repositories&q=node&type=&language=javascript&sort="},
+    {name: "HTML5", color: "#D84A24", percent: "99", link: "https://github.com/choidy180?tab=repositories&q=&type=&language=html&sort="},
+    {name: "CSS3", color: "#2465F1", percent: "99", link: "https://github.com/choidy180?tab=repositories&q=&type=&language=css&sort="},
+    {name: "MYSQL", color: "#016089", percent: "92", link: ""},
+    {name: "MARIADB", color: "#313E62", percent: "92", link: ""},
+    {name: "MONGO-DB", color: "#91DC50", percent: "88", link: ""},
+    {name: "SASS", color: "#CD669A", percent: "88", link: ""},
+    {name: "NEXTJS", color: "#000000", percent: "93", link: "https://github.com/choidy180?tab=repositories&q=next&type=&language=&sort="},
+    {name: "TAILWIND-CSS", color: "#00B8D5", percent: "93", link: "https://github.com/choidy180?tab=repositories&q=tail&type=&language=&sort="},
   ]
   return(
     <Container>
@@ -40,6 +40,11 @@ const Skills: NextPage = () => {
                 width={"100px"}
                 height={"100px"}
                 src={`/images/stack/${data.name}.png`}
+                onClick={()=> {
+                  if(data.link !== ""){
+                    window.open(data.link);
+                  }
+                }}
               />
               <p className="name">{data.name}</p>
               <p className="percent">{data.percent}%</p>
@@ -168,7 +173,7 @@ const SkillBox = styled.div`
   }
   &:hover{
     border: 2px solid ${props => props.color};
-    box-shadow: ${props => props.color} 0px 5px 15px;
+    box-shadow: ${props => props.color} 0px 3px 8px;
     transform: translateY(-4px);
   }
 `
