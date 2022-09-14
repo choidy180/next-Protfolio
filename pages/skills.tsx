@@ -31,8 +31,6 @@ const Skills: NextPage = () => {
     <Container>
       <p className="title">Have Skills</p>
       <Line>
-        <ContentTitle>Platforms & Languages </ContentTitle>
-        <ContentSubTitle>제가 사용할 수 있는 STACK입니다.</ContentSubTitle>
         <ContentBox data-aos="fade-up">
           {skill.map((data, i) => (
             <SkillBox key={i} color={data.color}>
@@ -62,23 +60,17 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 60px 0;
+  padding: 60px 0 0 0;
+  section{
+    filter: blur(0px);
+  }
   .title{
-    font-size: 52px;
-    background-color: #FFFFFF;
-    background: linear-gradient(to right, #ee7752, #e73c7e, #23a6d5, #23d5ab,#ee7752);
-    background-size: 200% auto;
-    color: #000;
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    letter-spacing: -1.8px;
-    animation: shine 2.5s linear infinite;
-    @keyframes shine {
-      to {
-        background-position: 200% center;
-      }
-    }
+    font-size: 20px;
+    color: #FFFFFF;
+    background-color: rgb(255, 77, 77);
+    padding: 2px 12px;
+    line-height: 26px;
+    border-radius: 8px;
   }
   @media (min-width: 1024px) {
     padding-left: 270px;
@@ -93,55 +85,13 @@ const Line = styled.div`
   align-items: center;
   padding: 20px 20px;
 `
-const ContentTitle = styled.p`
-  width: 100%;
-  font-size: 48px;
-  background-color: #4158D0;
-  background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
-  background-size: 200% auto;
-  color: #000;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  letter-spacing: -1.8px;
-  animation: shineFrontend 4.3s linear infinite;
-  line-height: 55px;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  @keyframes shineFrontend {
-    to {
-      background-position: 200% center;
-    }
-    0%, 33%, 66%, 99%
-    {
-      transform: translateY(0px);
-    }
-    16.5%, 54.6%, 83.3%
-    {
-      transform: translateY(-3px);
-    }
-  }
-  @media (max-width: 1024px) {
-    justify-content: center;
-  }
-`
-const ContentSubTitle = styled.p`
-  width: 100%;
-  color: #7b7b7b;
-  letter-spacing: -.6px;
-  display: flex;
-  @media (max-width: 1024px) {
-    justify-content: center;
-  }
-`
 
 const ContentBox = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
   align-items: center;
-  width: 100%;
+  max-width: 1240px;
   padding: 20px 0;
   gap: 20px;
   @media (max-width: 1024px) {
@@ -149,7 +99,7 @@ const ContentBox = styled.div`
   }
 `
 const SkillBox = styled.div`
-  padding: 12px 20px;
+  padding: 12px 16px;
   width: 160px;
   display: flex;
   flex-direction: column;
@@ -157,6 +107,7 @@ const SkillBox = styled.div`
   align-items: center;
   border-radius: 12px;
   box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  background-color: white;
   cursor: pointer;
   transition: all .2s ease-in-out;
   border: 3px solid transparent;

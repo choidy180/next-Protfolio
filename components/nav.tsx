@@ -37,29 +37,36 @@ const LeftTab: NextPage = () => {
         <MainUl>
           <Link href={"/profile"}>
             <li>
-              <BsArchive/>
+              <BsArchive className='leftIcon'/>
               Profile
               <BsChevronRight className='rightIcon'/>
             </li>
           </Link>
           <Link href={"/skills"}>
             <li>
-              <BsEmojiSmile/> 
+              <BsEmojiSmile className='leftIcon'/> 
               Skills
               <BsChevronRight className='rightIcon'/>
             </li>
           </Link>
           <Link href={"/project"}>
             <li>
-              <BsGithub/>
+              <BsGithub className='leftIcon'/>
               Project
               <BsChevronRight className='rightIcon'/>
             </li>
           </Link>
           <Link href={"/career"}>
             <li>
-              <BsEmojiSunglasses/>
+              <BsEmojiSunglasses className='leftIcon'/>
               Career
+              <BsChevronRight className='rightIcon'/>
+            </li>
+          </Link>
+          <Link href={"/post"}>
+            <li>
+              <BsEmojiSunglasses className='leftIcon'/>
+              Post
               <BsChevronRight className='rightIcon'/>
             </li>
           </Link>
@@ -81,6 +88,7 @@ const Container = styled.div`
   align-items: center;
   background-color: #FFFFFF;
   z-index: 99;
+  font-family: 'Pretendard-Regular';
   @media (min-width: 1024px) {
     display: flex;
   }
@@ -147,7 +155,6 @@ const Name = styled.p`
   display: flex;
   justify-content: center;
   align-items: center;
-  letter-spacing: -.4px;
   margin-top: 18px;
   line-height: 20px;
 `
