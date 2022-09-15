@@ -33,4 +33,7 @@ export const GlobalStyle = createGlobalStyle`
     input:focus, textarea:focus, select:focus{
         outline: none;
     }
+    *{
+        scroll-behavior: smooth;
+    }
 `;

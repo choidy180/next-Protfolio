@@ -1,9 +1,24 @@
 import { NextPage } from 'next';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 const WavesGround: NextPage = (title) => {
+  const [scroll, setScroll] = useState(false);
+  useEffect(()=>{
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    }
+  },[]);
+  const handleScroll = () => {
+    if(window.scrollY + 600 >= window.innerHeight){
+      setScroll(true);
+    } else {
+      setScroll(false);
+    }
+  }
   return (
-    <WavesContainer>
+    <WavesContainer className={scroll ? 'dark' : ''}>
       <div className='wave wave1'></div>
       <div className='wave wave2'></div>
       <div className='wave wave3'></div>
@@ -17,13 +32,15 @@ const WavesContainer = styled.section`
     margin: 0;
     padding: 0;
   }
-  position: fixed;
+  position: absolute;
   top: 0;
   width: 100%;
   min-height: calc(100vh - 100px);
   overflow: hidden;
-  background-color: rgb(52, 73, 94);
-  
+  background-color: #3C40C6;
+  &#dark{
+    filter: invert(100%);
+  }
   /* wave */
   .wave{
     position: absolute;

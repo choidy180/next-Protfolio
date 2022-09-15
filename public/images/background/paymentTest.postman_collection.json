@@ -1,0 +1,568 @@
+{
+	"info": {
+		"_postman_id": "81434d43-b495-473c-8c46-27ca359514ae",
+		"name": "paymentTest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20403785"
+	},
+	"item": [
+		{
+			"name": "CashProduct 캐시판매상품조회",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "display_yn",
+							"value": "Y",
+							"type": "text"
+						},
+						{
+							"key": "product_id",
+							"value": "0",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://localhost:5001/api/cash/product",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"cash",
+						"product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CashPayment 결제방법조회",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:5001/api/payment/method",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"payment",
+						"method"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CashPayment 결제내역조회",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:5001/api/payment/history/1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"payment",
+						"history",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CashPayment 결제완료정보",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "imp_uid",
+							"value": "TEST_1",
+							"type": "text"
+						},
+						{
+							"key": "merchant_uid",
+							"value": "35b98470-16f8-11ed-861d-0242ac120002",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://localhost:5001/api/payment/done",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"payment",
+						"done"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CashWallet 캐시잔액조회",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:5001/api/cash-wallet/balance",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"cash-wallet",
+						"balance"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CashWalletHistory 지갑이력조회",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:5001/api/wallet-history/1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"wallet-history",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "------------------------------------------------",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "SalePricePolicy 컨텐츠가격정책 조회",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "saleset_idx",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "pricepolicy_type",
+							"value": "common_policy",
+							"type": "text"
+						},
+						{
+							"key": "pricepolicy_delete_yn",
+							"value": "N",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://localhost:5001/api/sale-pricepolicy",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"sale-pricepolicy"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SalePricePolicy 컨텐츠가격정책 추가",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "saleset_idx",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "pricepolicy_type",
+							"value": "common_policy",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://localhost:5001/api/sale-pricepolicy",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"sale-pricepolicy"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SalePricePolicy 컨텐츠가격정책 유효성 검사 및 수정",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Title\": \"TEST6\",\r\n    \"Keep\":6,\r\n    \"Rental\":5,\r\n    \"Keep_dc\":4,\r\n    \"Rental_dc\":3,\r\n    \"Start_date\":\"2020-11-24\",\r\n    \"End_date\":\"2020-12-25\",\r\n    \"Wait_free_date\":\"2072-08-24\",\r\n    \"Wait_free_yn\":\"N\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:5001/api/sale-pricepolicy/12",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"sale-pricepolicy",
+						"12"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SalePricePolicy 컨텐츠가격정책 사용여부 검사",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:5001/api/sale-pricepolicy/use-check/11",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"sale-pricepolicy",
+						"use-check",
+						"11"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SalePricePolicy 컨텐츠가격정책 사용여부 수정",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:5001/api/sale-pricepolicy/use-update/11",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"sale-pricepolicy",
+						"use-update",
+						"11"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SalePricePolicy 컨텐츠가격정책 삭제상태변경",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:5001/api/sale-pricepolicy/del-update/11",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"sale-pricepolicy",
+						"del-update",
+						"11"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SalesExamination 정책심사 조회(최근데이터)",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:5001/api/examin/2",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"examin",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SalesExamination 정책심사 추가",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "saleset_idx",
+							"value": "2",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://localhost:5001/api/examin",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"examin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SalesExamination 정책심사 검수취소(User)",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:5001/api/examin/2",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"examin",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SaleSet 컨텐츠세일세트 조회",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "set_idx",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "event_code",
+							"value": "vE9C89H1g4S",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://localhost:5001/api/saleset",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"saleset"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SaleSet 컨텐츠세일세트 판매시작 및 중지",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "set_idx",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "code",
+							"value": "vE9C89H1g4S",
+							"type": "text"
+						},
+						{
+							"key": "stauts",
+							"value": "Y",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://localhost:5001/api/saleset",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"saleset"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SaleStroy 스토리 조회(정렬)",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "SaleStroy 스토리 판매시리즈에 추가",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "event_code",
+							"value": "pkDLV9I0DDl",
+							"type": "text"
+						},
+						{
+							"key": "p_event_code",
+							"value": "vE9C89H1g4S",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://localhost:5001/api/salestory",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"salestory"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SaleStroy 시리즈에 추가된 스토리 조회",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}

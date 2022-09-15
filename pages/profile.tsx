@@ -3,10 +3,8 @@ import styled from "styled-components";
 import { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { FiGithub } from "@react-icons/all-files/fi/FiGithub";
-import { RiVimeoLine } from "@react-icons/all-files/ri/RiVimeoLine";
 import WavesGround from "../components/wavesGround";
-
+import { BsChevronDown } from "react-icons/bs";
 const Profile: NextPage = () => {
   useEffect(()=>{
     AOS.init();
@@ -16,13 +14,16 @@ const Profile: NextPage = () => {
       <WavesGround/>
       <TopBox>
         <HeadText>
-          <h1>안녕하세요. 설명하는 개발자 김민석입니다.</h1>
+          <h1>안녕하세요. 설명하는 개발자 김민석입니다</h1>
+          <h2>효율적이고 합리적인 개발방향을 추구합니다</h2>
           <div className="btnBox">
-            <button onClick={()=> window.open('https://github.com/choidy180')}><FiGithub/>GITHUB</button>
-            <button onClick={()=> window.open('https://velog.io/@choidy180')}><RiVimeoLine/>BLOG</button>
+            <div className="circle"></div>
           </div>
+          <BsChevronDown className="downArrow"/>
         </HeadText>
       </TopBox>
+      <Box>
+      </Box>
     </Container>
   )
 }
@@ -30,27 +31,23 @@ const Profile: NextPage = () => {
 const Container = styled.div`
   width: 100vw;
   display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
+  flex-direction: column;
+  justify-content: center;
   align-items: flex-start;
+  scroll-snap-type:y mandatory;
   @media (min-width: 1024px) {
     padding-left: 270px;
   }
 `
 const TopBox = styled.div`
   width: 100%;
-  height: 100%;
-  padding-top: 140px;
+  height: calc(100vh - 100px);
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   overflow: hidden;
-  .emoji{
-    font-size: 38px;
-    color: #FFFFFF;
-    margin-top: -6px;
-  }
+  scroll-snap-align: start;
 `
 const HeadText = styled.div`
   width: 100%;
@@ -65,6 +62,15 @@ const HeadText = styled.div`
     -webkit-box-reflect: below 1px linear-gradient(transparent, #0008);
     outline: none;
     animation: animate 5s linear infinite;
+  }
+  h2{
+    margin-top: 32px;
+    font-size: 20px;
+    color: rgb(236, 240, 241);
+    background-color: rgb(255, 77, 77);
+    padding: 2px 12px;
+    line-height: 26px;
+    border-radius: 8px;
   }
   @keyframes animate {
     0%, 18%, 20%, 50.1%, 60%, 65.1%, 80%, 90.1%, 92%
@@ -82,32 +88,30 @@ const HeadText = styled.div`
       0 0 160px #03bcf4;
     }
   }
-  div{
-    max-width: 440px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 18px;
-    margin-top: 48px;
-    button{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 200px;
-      padding: 4px 0;
-      font-size: 20px;
-      border: 2px solid #FFF;
-      outline: none;
-      color: #fff;
-      background: transparent;
-      cursor: pointer;
-      position: relative;
-      z-index: 0;
-      border-radius: 10px;
-      gap: 4px;
-      background-color: transparent;
+  .btnBox{
+    width: 42px;
+    height: 64px;
+    border: 3px solid rgb(236, 240, 241);
+    margin-top: 28px;
+    border-radius: 36px;
+    opacity: 0.8;
+    .circle{
+      left: 50%;
+      transform: translateX(-50%) translateY(10px);
+      width: 10px;
+      height: 10px;
+      background-color: rgb(236, 240, 241);
+      border-radius: 50%;
+      opacity: 0;
+      animation: animateCircle 2s linear infinite;
     }
+  }
+  .downArrow{
+    margin-top: 12px;
+    font-size: 32px;
+    color: rgb(236, 240, 241);
+    font-weight: bold;
+    animation: downArrowAnimation 2s linear infinite;
   }
   @media (max-width: 1024px) {
     width: auto;
@@ -123,5 +127,33 @@ const HeadText = styled.div`
       font-size: 24px;
     }
   }
+  @keyframes animateCircle {
+    0% {
+      transform: translateX(-50%) translateY(10px);
+    }
+    50%{
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(-50%) translateY(36px);
+    }
+  }
+  @keyframes downArrowAnimation {
+    0%{
+      opacity: 0;
+    }
+    100%{
+      opacity: 1;
+    }
+  }
+`
+
+const Box = styled.div`
+  position: absolute;
+  top: 100vh;
+  width: 100%;
+  height: 100vh;
+  opacity: .1;
+  scroll-snap-align: start;
 `
 export default Profile;
