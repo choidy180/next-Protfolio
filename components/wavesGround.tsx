@@ -2,23 +2,9 @@ import { NextPage } from 'next';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-const WavesGround: NextPage = (title) => {
-  const [scroll, setScroll] = useState(false);
-  useEffect(()=>{
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    }
-  },[]);
-  const handleScroll = () => {
-    if(window.scrollY + 600 >= window.innerHeight){
-      setScroll(true);
-    } else {
-      setScroll(false);
-    }
-  }
+const WavesGround: NextPage = (props) => {
   return (
-    <WavesContainer className={scroll ? 'dark' : ''}>
+    <WavesContainer id={props['top'] ? 'dark' : ''}>
       <div className='wave wave1'></div>
       <div className='wave wave2'></div>
       <div className='wave wave3'></div>
@@ -39,7 +25,9 @@ const WavesContainer = styled.section`
   overflow: hidden;
   background-color: #3C40C6;
   &#dark{
-    filter: invert(100%);
+    .wave{
+      filter: invert(100%) !important;
+    }
   }
   /* wave */
   .wave{
@@ -50,6 +38,7 @@ const WavesContainer = styled.section`
     height: 100px;
     background: url('/images/background/wave.png');
     background-size: 1000px 100px;
+    transition: all .15s ease-in-out;
   }
   .wave.wave1{
     animation: animate 8s linear infinite;

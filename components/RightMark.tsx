@@ -1,27 +1,12 @@
 import { NextPage } from 'next';
 import styled from 'styled-components';
 import { FiGithub } from "@react-icons/all-files/fi/FiGithub";
-import { useEffect, useState } from 'react';
+import { scrollProps } from '../pages/_app';
 
 
-const RightMarkBox: NextPage = () => {
-  const [scroll, setScroll] = useState(false);
-  useEffect(()=>{
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    }
-  },[]);
-  const handleScroll = () => {
-    console.log(window.scrollY);
-    if(window.scrollY + 600 >= window.innerHeight){
-      setScroll(true);
-    } else {
-      setScroll(false);
-    }
-  }
+const RightMarkBox: NextPage = (props:scrollProps) => {
   return (
-    <RightMark className={scroll ? 'top' : ''} onClick={()=> window.open('https://github.com/choidy180')}>
+    <RightMark className={props ? 'top' : ''} onClick={()=> window.open('https://github.com/choidy180')}>
       <FiGithub/>
       <span>Github</span>
     </RightMark>

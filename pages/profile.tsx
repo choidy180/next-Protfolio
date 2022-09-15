@@ -4,14 +4,15 @@ import { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import WavesGround from "../components/wavesGround";
-import { BsChevronDown } from "react-icons/bs";
-const Profile: NextPage = () => {
+import { BsChevronDown, BsVimeo } from "react-icons/bs";
+import { FiGithub } from "@react-icons/all-files/fi/FiGithub";
+const Profile: NextPage = (props) => {
   useEffect(()=>{
     AOS.init();
   })
   return (
     <Container>
-      <WavesGround/>
+      <WavesGround {...props}/>
       <TopBox>
         <HeadText>
           <h1>안녕하세요. 설명하는 개발자 김민석입니다</h1>
@@ -22,7 +23,18 @@ const Profile: NextPage = () => {
           <BsChevronDown className="downArrow"/>
         </HeadText>
       </TopBox>
-      <Box>
+      <Box style={props['top'] ? {background : "#000000"} : {}}>
+        <h4 data-aos="fade-up">Description. 1</h4>
+        <h3 data-aos="fade-up">설명하는 개발자 김민석</h3>
+        <h5 data-aos="fade-up">아름답고 효율적인 개발방향을 추구합니다.<br/>언제나 합리적이고 설명가능한 개발을 하고자하며<br/>사용자에게 편리함과 즐거움을 주는 서비스를 만들고 있습니다.</h5>
+        <div className="btnBox" data-aos="fade-up">
+          <button>
+            <FiGithub/> Github
+          </button>
+          <button>
+            <BsVimeo/> Velog
+          </button>
+        </div>
       </Box>
     </Container>
   )
@@ -150,10 +162,68 @@ const HeadText = styled.div`
 
 const Box = styled.div`
   position: absolute;
-  top: 100vh;
+  top: calc(100vh - 100px);
   width: 100%;
-  height: 100vh;
-  opacity: .1;
-  scroll-snap-align: start;
+  height: calc(100vh + 100px);
+  opacity: 1;
+  transition: all .15s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 240px 0 0 100px;
+  color: rgb(236, 240, 241);
+  h4{
+    margin-top: -200px;
+    font-size: 24px;
+  }
+  h3{
+    margin-top: 48px;
+    font-size: 72px;
+    line-height: 64px;
+  }
+  h5{
+    margin-top: 54px;
+    font-size: 24px;
+    line-height: 28px;
+  }
+  .btnBox{
+    margin-top: 48px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    gap: 4px;
+    margin-top: 24px;
+    border-radius: 6px;
+    border: 1.4px solid rgb(236, 240, 241);
+    padding: 2.4px 18px;
+    transition: all .15s ease-in-out;
+    &:hover{
+      color: rgb(236, 240, 241);
+      text-shadow: 0 0 1.5px #03bcf4,
+      0 0 3px #03bcf4,
+      0 0 6px #03bcf4,
+      0 0 9px #03bcf4, 
+      0 0 12px #03bcf4;
+      box-shadow: 0 0 1.5px #03bcf4,
+      0 0 3px #03bcf4,
+      0 0 6px #03bcf4,
+      0 0 9px #03bcf4, 
+      0 0 12px #03bcf4;
+      svg{
+        -moz-box-shadow: 0 0 1.5px #03bcf4,
+          0 0 3px #03bcf4,
+          0 0 6px #03bcf4,
+          0 0 9px #03bcf4, 
+          0 0 12px #03bcf4;
+      }
+    }
+  }
 `
 export default Profile;

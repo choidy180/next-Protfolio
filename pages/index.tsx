@@ -5,7 +5,7 @@ import LeftTab from '../components/nav'
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-const Home: NextPage = () => {
+const Home: NextPage = (props) => {
   useEffect(()=>{
     AOS.init();
   })
