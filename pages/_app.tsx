@@ -15,6 +15,7 @@ export interface scrollProps{
 function MyApp({ Component, pageProps }: AppProps) {
   const [scroll, setScroll] = useState<scrollProps['scroll']>({top: false});
   useEffect(()=>{
+    console.log("조회수 업데이트");
     window.addEventListener('scroll', handleScroll);
     return () => {
       window.removeEventListener('scroll', handleScroll);
