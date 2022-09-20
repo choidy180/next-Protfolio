@@ -29,7 +29,7 @@ const Skills: NextPage = () => {
   ]
   return(
     <Container>
-      <p className="title">Have Skills</p>
+      <p className="title">Have Skill</p>
       <Line>
         <ContentBox data-aos="fade-up">
           {skill.map((data, i) => (
