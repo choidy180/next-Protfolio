@@ -6,6 +6,7 @@ import { config } from "@fortawesome/fontawesome-svg-core";
 import LeftTab from '../components/nav';
 import RightMarkBox from '../components/RightMark';
 import { useEffect, useState } from 'react';
+import Head from 'next/head';
 
 export interface scrollProps{
   scroll: {top: boolean};
@@ -28,6 +29,11 @@ function MyApp({ Component, pageProps }: AppProps) {
   }
   return (
     <>
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Next-basics | Next</title>
+        <link rel="shortcut icon" href="../images/icons/favicon.ico" />
+      </Head>
       <LeftTab/>
       <RightMarkBox/>
       <Component {...pageProps} {...scroll} />

@@ -1,14 +1,13 @@
 import { NextPage } from 'next';
-import { useEffect, useState } from 'react';
+import * as React from 'react';
 import styled from 'styled-components';
 
 const WavesGround: NextPage = (props) => {
   return (
     <WavesContainer id={props['top'] ? 'dark' : ''}>
       <div className='wave wave1'></div>
-      <div className='wave wave2'></div>
-      <div className='wave wave3'></div>
       <div className='wave wave4'></div>
+      <img src='/images/background/code-g0bacfefb1_1920.jpg' alt="" />
     </WavesContainer>
   )
 }
@@ -67,6 +66,13 @@ const WavesContainer = styled.section`
     opacity: 0.7;
     animation-delay: -5s;
     bottom: 20px;
+  }
+  img{
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    filter: brightness(0.2);
   }
   @keyframes animate {
     0% {

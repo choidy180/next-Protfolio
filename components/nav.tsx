@@ -125,8 +125,8 @@ const ProfileBox = styled.div`
     position: absolute;
     width: 50px;
     height: 150px;
-    background: linear-gradient(#52ACFF, #FFE32C);
-    animation: iconup 2.5s linear infinite;
+    /* background: linear-gradient(#52ACFF, #FFE32C); */
+    /* animation: iconup 2.5s linear infinite; */
     border-radius: 16px;
     overflow: hidden;
   }
@@ -137,7 +137,7 @@ const ProfileBox = styled.div`
     border-radius: 16px;
     overflow: hidden;
   }
-  @keyframes iconup 
+  /* @keyframes iconup 
   {
     0%
     {
@@ -147,7 +147,7 @@ const ProfileBox = styled.div`
     {
       transform : rotate(360deg);
     }
-  }
+  } */
 `
 
 const Name = styled.p`
@@ -206,18 +206,6 @@ const MainHead = styled.p`
   width: 100%;
   font-size: 18px;
   padding-left: 20px;
-  animation: mainHeadClude .625s linear infinite;
-  @keyframes mainHeadClude {
-    0% {
-      transform: translateY(0px);
-    }
-    50% {
-      transform: translateY(-3px);
-    }
-    100% {
-      transform: translateY(0px);
-    }
-  }
 `
 const MainUl = styled.ul`
   width: 100%;
