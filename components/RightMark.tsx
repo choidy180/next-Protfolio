@@ -25,10 +25,10 @@ export const RightMark = styled.div`
   justify-content: flex-start;
   align-items: center;
   background-color: #FFFFFF;
-  width: 40px;
+  width: 28px;
   padding: 10px 0;
-  font-size: 20px;
-  height: 110px;
+  font-size: 14px;
+  height: 84px;
   transition: all .15s ease-in-out;
   cursor: pointer;
   svg{
@@ -36,8 +36,9 @@ export const RightMark = styled.div`
     transition: all .15s ease-in-out;
   }
   span{
-    margin-top: 24px;
+    margin-top: 18px;
     transform: rotate(270deg);
+    margin-left: -1px;
   }
   &:hover{
     color: rgb(236, 240, 241);
