@@ -1,21 +1,28 @@
+import * as React from 'react';
 import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 import "tailwindcss/tailwind.css";
 import "@fortawesome/fontawesome-svg-core/styles.css"; // import Font Awesome CSS
-import { config } from "@fortawesome/fontawesome-svg-core";
 import LeftTab from '../components/nav';
 import RightMarkBox from '../components/RightMark';
-import { useEffect, useState } from 'react';
 import Head from 'next/head';
+import { addDoc, collection, getDocs, serverTimestamp, Timestamp } from '@firebase/firestore';
+import { dbService } from '../firebase/firebase';
 
 export interface scrollProps{
   scroll: {top: boolean};
 }
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const [scroll, setScroll] = useState<scrollProps['scroll']>({top: false});
-  useEffect(()=>{
-    console.log("조회수 업데이트");
+  const [scroll, setScroll] = React.useState<scrollProps['scroll']>({top: false});
+
+  const hitUpdate = async () => {
+    const hitRef = await addDoc(collection(dbService, 'hit'),{
+      date:serverTimestamp(),
+    })
+  }
+  React.useEffect(()=> {
+    hitUpdate();
     window.addEventListener('scroll', handleScroll);
     return () => {
       window.removeEventListener('scroll', handleScroll);
