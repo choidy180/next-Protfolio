@@ -21,8 +21,13 @@ function MyApp({ Component, pageProps }: AppProps) {
       date:serverTimestamp(),
     })
   }
+  const hitGet = async () => {
+    const hitRef = await (await getDocs(collection(dbService, 'hit'))).size;
+    console.log(hitRef);
+  }
   React.useEffect(()=> {
     hitUpdate();
+    hitGet();
     window.addEventListener('scroll', handleScroll);
     return () => {
       window.removeEventListener('scroll', handleScroll);

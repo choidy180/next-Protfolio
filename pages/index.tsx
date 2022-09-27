@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import LeftTab from '../components/nav'
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { BsCaretDownFill } from 'react-icons/bs';
 
 const Home: NextPage = (props) => {
   useEffect(()=>{
@@ -14,8 +15,11 @@ const Home: NextPage = (props) => {
       <Box>
         <TopBox data-aos="fade-left">
           <video src="/images/background/ì__ì_¤ ì½_ë__ - 4733.mp4" autoPlay muted loop/>
-          <div>
+          <div className='titleBox'>
             <h1>안녕하세요. 개발자 김민석입니다...</h1>
+          </div>
+          <div className='underIcon'>
+            <BsCaretDownFill/>
           </div>
         </TopBox>
       </Box>
@@ -54,7 +58,7 @@ const TopBox = styled.div`
     object-fit: cover;
     filter: brightness(60%);
   }
-  div::before{
+  .titleBox::before{
     content:'';
     position: absolute;
     top: -2px;
@@ -63,6 +67,43 @@ const TopBox = styled.div`
     height: 42px;
     background-color: #FFFFFF;
     animation: blinkCursor 0.8s steps(3) infinite;
+  }
+  &::before{
+    content: '';
+    width: 100%;
+    height: 30px;
+    background-color: #FFFFFF;
+    position: absolute;
+    bottom: 0;
+    z-index: 999;
+    &::after{
+      content: '';
+      width: 50px;
+      height: 50px;
+      background-color: red;
+      position: absolute;
+      bottom: 0;
+    }
+  }
+  &::after{
+    content: '';
+    width: 80px;
+    height: 80px;
+    background-color: #FFFFFF;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    bottom: -15px;
+    border-top-left-radius: 50%;
+    z-index: 999;
+    &::after{
+      content: '';
+      width: 50px;
+      height: 50px;
+      background-color: red;
+      position: absolute;
+      bottom: 0;
+    }
   }
   @keyframes blinkCursor {
     0%, 75%
@@ -74,7 +115,7 @@ const TopBox = styled.div`
       opacity: 0;
     }
   }
-  div {
+  .titleBox {
     position: absolute;
     -webkit-box-reflect: below 1px linear-gradient(transparent, #0002);
     h1{
@@ -122,6 +163,63 @@ const TopBox = styled.div`
       right: -8px;
       width: 2px;
       height: 22px;
+    }
+  }
+  .underIcon{
+    position: absolute;
+    width: 20px;
+    height: 40px;
+    left: 50%;
+    bottom: 18px;
+    transform: translateX(-50%);
+    border: 2px solid rgb(99, 110, 114);
+    border-radius: 24px;
+    z-index: 999999;
+    &::after{
+      content: '';
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      top: 4px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: rgb(99, 110, 114);
+      border-radius: 50%;
+      animation: underArrow 1.4s infinite;
+      @keyframes underArrow {
+        0%
+        {
+          opacity: 0;
+          top: 4px;
+        }
+        100%
+        {
+          opacity: 1;
+          top: 22px;
+        }
+      }
+    }
+    &::before{
+      position: absolute;
+    }
+    svg{
+      position: absolute;
+      bottom: -17px;
+      color: rgb(99, 110, 114);
+      font-size: 14px;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: opaUnderArrow 1.4s infinite;
+      @keyframes opaUnderArrow {
+        0%
+        {
+          opacity: 0;
+        }
+        100%
+        {
+          opacity: 1;
+        }
+      }
     }
   }
 `
