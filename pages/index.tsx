@@ -7,14 +7,27 @@ import { BsCaretDownFill, BsEmojiHeartEyes, BsEmojiSmile, BsEmojiSunglasses } fr
 import VanillaTilt from 'vanilla-tilt';
 
 const Home: NextPage = (props) => {
-  const welcomeRef = useRef<HTMLDivElement>(null);
+  function Tilt(props){
+    const {options, ...rest} = props;
+    const tilt = useRef(null);
+
+    useEffect(()=> {
+      VanillaTilt.init(tilt.current, options);
+    },[options]);
+    return <div ref={tilt} {...rest}/>
+  }
+  const options = {
+    scale: 1.2,
+    speed: 1000,
+    max: 30
+  }
   useEffect(()=>{
     AOS.init();
   })
   return (
     <Container>
-      <Box>
-        <TopBox data-aos="fade-left">
+      <Box id='fullpage'>
+        <TopBox data-aos="fade-left" className='section'>
           <video src="/images/background/ì__ì_¤ ì½_ë__ - 4733.mp4" autoPlay muted loop/>
           <div className='titleBox'>
             <h1>안녕하세요. 개발자 김민석입니다...</h1>
@@ -23,7 +36,7 @@ const Home: NextPage = (props) => {
             <BsCaretDownFill/>
           </div>
         </TopBox>
-        <WelcomBox>
+        <WelcomBox className='section'>
           <p className='redTitle'>Welcome Aboard</p>
           <p className='title'>방문해주셔서 감사합니다</p>
           <p className='subTitle'>웹개발을 전반적으로 다루는 개발 블로그가 되도록 노력하겠습니다.</p>
@@ -31,14 +44,14 @@ const Home: NextPage = (props) => {
             <div className='card'>
               <div className='content'>
                 <h2 className='icon'><BsEmojiHeartEyes/></h2>
-                <h3>100</h3>
+                <h3>100명</h3>
                 <h2 className='name'>방문자</h2>
               </div>
             </div>
             <div className='card'>
               <div className='content'>
                 <div className='icon'><BsEmojiSmile/></div>
-                <h3>100</h3>
+                <h3>100개</h3>
                 <h2 className='name'>포스트</h2>
               </div>
             </div>
@@ -74,6 +87,13 @@ const Box = styled.div`
   justify-content: flex-start;
   align-items: center;
   background-color: rgb(223, 230, 233);
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  .boxTest{
+    width: 200px;
+    height: 200px;
+    background-color: red;
+  }
 `
 const TopBox = styled.div`
   width: 100%;
@@ -82,6 +102,7 @@ const TopBox = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  scroll-snap-align: center;
   video {
     width: 100%;
     height: 100vh;
@@ -264,6 +285,7 @@ const WelcomBox = styled.div`
   min-height: 100vh;
   padding-top: 120px;
   background-color: rgb(245, 246, 250);
+  scroll-snap-align: center;
   p{
     width: 100%;
     padding-left: 120px;

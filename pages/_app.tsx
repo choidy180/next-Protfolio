@@ -47,6 +47,9 @@ function MyApp({ Component, pageProps }: AppProps) {
         <title>Next-basics | Next</title>
         <link rel="shortcut icon" href="../images/icons/favicon.ico" />
         <script type="text/javascript" src="vanilla-tilt.js"></script>
+        <link rel="stylesheet" type="text/css" href="fullpage.css" />
+        <script src="vendors/easings.min.js"></script>
+        <script type="text/javascript" src="fullpage.js"></script>
       </Head>
       <LeftTab/>
       <RightMarkBox/>

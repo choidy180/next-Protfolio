@@ -34,6 +34,6 @@ export const GlobalStyle = createGlobalStyle`
         outline: none;
     }
     *{
-        scroll-behavior: smooth;
+        overflow-y: scroll;
     }
 `;
