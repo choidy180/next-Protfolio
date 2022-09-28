@@ -127,7 +127,7 @@ const Projects: NextPage = () => {
                 />
               </div>
             </ContentImageBox>
-            <div data-aos="fade-up" data-aos-duration="500">
+            <div>
               <p className="title">{content.title}</p>
               <p className="skills">
                 {content.stack.map((stack, i) => (
@@ -289,12 +289,17 @@ const Content = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all ease-in-out .15s;
   .title{
     width: 100%;
     font-size: 24px;
-    letter-spacing: -.6px;
+    letter-spacing: -1px;
     word-spacing: 1.2px;
     margin-top: 6px;
+    padding: 0 12px;
   }
   .skills{
     width: 100%;
@@ -304,19 +309,24 @@ const Content = styled.div`
     align-items: center;
     gap: 6px;
     margin-top: 6px;
+    padding: 0 12px;
   }
   .skill{
-    background-color: #E9ECF2;
+    background-color: rgb(9, 132, 227);
     padding: 0px 8px;
     border-radius: 4px;
+    color: #FFFFFF;
   }
   .maker {
     padding-left: 2px;
     margin-top: 8px;
     font-size: 18px;
+    padding: 0 12px;
   }
   .link {
     margin-top: 24px;
+    padding: 0 12px;
+    margin-bottom: 18px;
     button {
       display: flex;
       justify-content: center;
@@ -324,21 +334,32 @@ const Content = styled.div`
       gap: 4px;
       padding: 2px 8px;
       border-radius: 8px;
-      background-color: rgb(223, 230, 233);
+      background-color: rgb(45, 52, 54);
+      color: #FFFFFF;
     }
   }
   @media (max-width: 1024px) {
 
   }
+  &:hover{
+    cursor: pointer;
+    transform: translateY(-8px);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    background-color: rgb(245, 246, 250);
+  }
 `
 const ContentImageBox = styled.div`
   width: 100%;
   padding-top: 60%;
+  overflow: hidden;
   div {
     position: absolute;
     top: 0;
     width: 100%;
     height: 100%;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    overflow: hidden;
     img {
       transition: all .2s ease-in-out;
     }
