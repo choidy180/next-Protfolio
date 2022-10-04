@@ -51,7 +51,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <script src="vendors/easings.min.js"></script>
         <script type="text/javascript" src="fullpage.js"></script>
       </Head>
-      <LeftTab/>
+      {/* <LeftTab/> */}
       <RightMarkBox/>
       <Component {...pageProps} {...scroll} />
     </>

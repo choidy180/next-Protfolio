@@ -36,4 +36,7 @@ export const GlobalStyle = createGlobalStyle`
     *{
         overflow-y: scroll;
     }
+    html{
+        scroll-snap-type:y;
+    }
 `;
