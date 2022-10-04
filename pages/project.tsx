@@ -24,7 +24,7 @@ const Projects: NextPage = () => {
   const projectContent:contentInterface[] = [
     {
       img: '/images/content/file-20180820-30593-1nxanpj.png',
-      title: '실시간 날씨 정보를 활용한 코디 추천 웹사이트',
+      title: '실시간 날씨 정보를 활용한 코디 추천',
       stack: ["ReactJS", "MySQL", "JavaScript", "OpenWeather"],
       maker: "김민석, 황채영(디자이너)",
       link: ["github"],
@@ -111,9 +111,9 @@ const Projects: NextPage = () => {
           <span>REACT.JS</span>
           <span>DESIGN</span>
         </ProjectNav>
-        <video src="/images/background/ì__ì_¤ ì½_ë__ - 4733.mp4" autoPlay muted loop/>
+        {/* <video src="/images/background/ì__ì_¤ ì½_ë__ - 4733.mp4" autoPlay muted loop/>
         <p className="title">Intuitive And Efficient Development</p>
-        <span className="subTitle">직관적이고 효율적인 개발을 지향합니다</span>
+        <span className="subTitle">직관적이고 효율적인 개발을 지향합니다</span> */}
       </FirstBox>
       <ContentBox>
         {projectContent.map((content, i) => (
@@ -127,7 +127,7 @@ const Projects: NextPage = () => {
                 />
               </div>
             </ContentImageBox>
-            <div>
+            <div className="box">
               <p className="title">{content.title}</p>
               <p className="skills">
                 {content.stack.map((stack, i) => (
@@ -140,7 +140,7 @@ const Projects: NextPage = () => {
               <p className="link">
                 {content.githubSrc && (
                     <button className="github" onClick={()=> window.open(`${content.githubSrc}`)}>
-                      <FiGithub/>GitHub <AiOutlineRight style={{marginLeft: "22px"}}/>
+                      <FiGithub/>GitHub <AiOutlineRight style={{marginLeft: "12px"}}/>
                     </button>
                   )
                 }
@@ -202,7 +202,7 @@ const FirstBox = styled.div`
   }
   .title{
     position: absolute;
-    left: 24px;
+    left: 48px;
     bottom: 48px;
     z-index: 999;
     color: white;
@@ -222,7 +222,7 @@ const FirstBox = styled.div`
   }
   .subTitle{
     position: absolute;
-    left: 24px;
+    left: 48px;
     bottom: 8px;
     z-index: 999;
     color: white;
@@ -276,26 +276,30 @@ const ContentBox = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   padding-top: 24px;
   gap: 30px;
   row-gap: 70px;
 `
 const Content = styled.div`
-  width: 31%;
-  min-width: 420px;
+  width: 330px;
+  height: 400px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: flex-start;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
   border-radius: 12px;
   overflow: hidden;
   transition: all ease-in-out .15s;
+  .box{
+    width: 100%;
+    height: 100%;
+  }
   .title{
     width: 100%;
-    font-size: 24px;
+    font-size: 20px;
     letter-spacing: -1px;
     word-spacing: 1.2px;
     margin-top: 6px;
@@ -312,30 +316,38 @@ const Content = styled.div`
     padding: 0 12px;
   }
   .skill{
-    background-color: rgb(9, 132, 227);
-    padding: 0px 8px;
+    background-color: rgb(223, 249, 251);
+    padding: 0px 6px;
     border-radius: 4px;
-    color: #FFFFFF;
+    font-size: 14px;
+    color: rgb(34, 47, 62);
   }
   .maker {
-    padding-left: 2px;
     margin-top: 8px;
-    font-size: 18px;
-    padding: 0 12px;
+    font-size: 14px;
+    padding: 0 16px;
   }
   .link {
+    position: absolute;
+    bottom: 12px;
+    width: 100%;
     margin-top: 24px;
     padding: 0 12px;
-    margin-bottom: 18px;
     button {
       display: flex;
       justify-content: center;
       align-items: center;
       gap: 4px;
-      padding: 2px 8px;
-      border-radius: 8px;
+      padding: 2px 5.5px;
+      border-radius: 4px;
       background-color: rgb(45, 52, 54);
-      color: #FFFFFF;
+      background-color: rgb(245, 246, 250);
+      color: rgb(52, 73, 94);
+      font-size: 14px;
+      &:hover{
+        background-color: rgb(223, 249, 251);
+        color: rgb(52, 73, 94);
+      }
     }
   }
   @media (max-width: 1024px) {
