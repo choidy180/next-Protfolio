@@ -9,6 +9,9 @@ import Head from 'next/head';
 import { addDoc, collection, getDocs, serverTimestamp, Timestamp } from '@firebase/firestore';
 import { dbService } from '../firebase/firebase';
 import { LeftBottomBox } from '../components/LeftBottomBox';
+import { ThemeProvider } from 'styled-components';
+import { basicTheme } from '../enum/ThemeEnums';
+import { RecoilRoot, useRecoilState } from 'recoil';
 
 export interface scrollProps{
   scroll: {top: boolean};
@@ -48,10 +51,14 @@ function MyApp({ Component, pageProps }: AppProps) {
         <title>Next-basics | Next</title>
         <link rel="shortcut icon" href="../images/icons/favicon.ico" />
       </Head>
-      <LeftTab/>
-      <RightMarkBox/>
-      <Component {...pageProps} {...scroll} />
-      <LeftBottomBox/>
+      <ThemeProvider theme={basicTheme}>
+        <RecoilRoot>
+          {/* <LeftTab/> */}
+          <RightMarkBox/>
+          <Component {...pageProps} {...scroll} />
+          <LeftBottomBox/>
+        </RecoilRoot>
+      </ThemeProvider>
     </>
   )
 }

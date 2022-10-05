@@ -5,7 +5,9 @@ import Document, {
   NextScript,
   DocumentContext,
 } from "next/document";
+import { useRecoilValue } from "recoil";
 import { ServerStyleSheet } from "styled-components";
+import { isThemeAtom } from "../recoil/theme";
 
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {

@@ -2,32 +2,38 @@ import { NextPage } from "next";
 import * as React from 'react';
 import styled from "styled-components";
 import AOS from "aos";
+import { TopNav } from "../components/topNav";
+import { isThemeAtom } from "../recoil/theme";
+import { useRecoilValue, useSetRecoilState } from 'recoil';
 
 const Example: NextPage = () => {
   const [absoluteBoxView, setAbsoluteBoxView] = React.useState(true);
+  const setDarkAtom = useSetRecoilState(isThemeAtom);
+  const isTheme = useRecoilValue(isThemeAtom);
   React.useEffect(()=>{
     AOS.init();
   })
   return(
     <Container>
+      <TopNav props={absoluteBoxView}/>
       <AbsoluteBox>
-        <AbsoluteMainBox>
-          <div className="box" id={absoluteBoxView ? "" : "right"} data-aos="fade-up">
+        <AbsoluteMainBox> 
+          <div className="box" style={isTheme ? {transform : ''} : {transform: 'translateX(-50%)'}} data-aos="fade-up">
             <div className="wrapper blue">
               <img className="one" src="/images/profile/KakaoTalk_Photo_2022-10-04-17-17-18.png" alt="" />
             </div>
             <div className="wrapper red">
-              <img className="two" src="/images/profile/KakaoTalk_Photo_2022-10-04-17-05-15.png" alt="" />
+              <img className="two" src="/images/profile/KakaoTalk_Photo_2022-10-04-17-17-18.png" alt="" />
             </div>
           </div>
           <AbsoluteBtnBox>
-            <div id="blue" className={absoluteBoxView ? 'focus' : ''} onClick={()=> setAbsoluteBoxView((e)=>!e)}/>
-            <div id="purple" className={absoluteBoxView ? '' : 'focus'} onClick={()=> setAbsoluteBoxView((e)=>!e)}/>
+            <div id="blue" className={isTheme ? 'focus' : ''} onClick={()=> setDarkAtom(true)}/>
+            <div id="purple" className={isTheme ? '' : 'focus'} onClick={()=> setDarkAtom(false)}/>
           </AbsoluteBtnBox>
         </AbsoluteMainBox>
         <AbsoluteTitleBack>
           <h2>communicative<br/>developer</h2>
-          <p><b style={ !absoluteBoxView ? {color : "rgb(162, 155, 254)"} : { color :"rgb(116, 185, 255)"}}>방문해주셔서 감사합니다</b><br/>웹개발을 전반적으로 다루는 개발 블로그가 되도록 노력하겠습니다</p>
+          <p><b style={ isTheme ? { color :"rgb(116, 185, 255)"} : {color : "rgb(162, 155, 254)"}}>방문해주셔서 감사합니다</b><br/>웹개발을 전반적으로 다루는 개발 블로그가 되도록 노력하겠습니다</p>
         </AbsoluteTitleBack>
       </AbsoluteBox>
       <Box color="#FFFFFF">
@@ -61,6 +67,10 @@ const AbsoluteBox = styled.div`
   top: 0;
   scroll-snap-align: center;
   z-index: 10;
+  h1{
+    font-size: 30px;
+    color: ${props=>props.theme.pointColor};
+  }
 `
 const AbsoluteMainBox = styled.div`
   position: absolute;
@@ -84,23 +94,37 @@ const AbsoluteMainBox = styled.div`
   .wrapper{
     flex-shrink: 0;
     width: 500px;
+    @media (max-width: 1024px) {
+      width: calc(100vw - 80px);
+    }
+    @media (max-width: 784px) {
+      width: 100vw;
+    }
   }
   img{
     position: absolute;
-    width: 80%;
+    width: 70%;
+    min-width: 300px;
     left: 50%;
     transform: translateX(-50%);
     bottom: 0;
     pointer-events: none;
-    &.two{
-      width: 100%;
-    }
+
   }
   .blue{
     background-color: rgb(116, 185, 255);
   }
   .red{
     background-color: rgb(162, 155, 254);
+  }
+  @media (max-width: 1280px) {
+    left: 0;
+  }
+  @media (max-width: 1024px) {
+    width: calc(100% - 80px);
+  }
+  @media (max-width: 784px) {
+    width: 100%;
   }
 `
 const AbsoluteBtnBox = styled.div`
@@ -136,6 +160,9 @@ const AbsoluteTitleBack = styled.div`
   @media (max-width: 1280px) {
     width: calc(100% - 540px);
   }
+  @media (max-width: 1024px) {
+    display: none;
+  }
   h2{
     position: absolute;
     font-family: 'GmarketSansMedium';
@@ -167,7 +194,7 @@ const AbsoluteTitleBack = styled.div`
     b{
       font-size: 44px;
       line-height: 44px;
-      color: ${props=>props.color};
+      color: ${props=>props.theme.pointColor};
     }
     @media (max-width: 1400px) {
       font-size: 18px;
@@ -175,8 +202,12 @@ const AbsoluteTitleBack = styled.div`
       b{
         font-size: 36px;
         line-height: 36px;
-        color: ${props=>props.color};
+        color: ${props=>props.theme.pointColor};
       }
+    }
+    @media (max-width: 1280px) {
+      font-size: 16px;
+      line-height: 22px;
     }
   }
 `

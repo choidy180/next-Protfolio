@@ -15,10 +15,9 @@ const RightMarkBox: NextPage = (props:scrollProps) => {
 
 export const RightMark = styled.div`
   position: fixed;
-  top: 50%;
+  bottom: 30px;
   right: 0px;
   z-index: 9999;
-  transform: translateY(-50%);
   width: 100%;
   display  : flex;
   flex-direction: column;
