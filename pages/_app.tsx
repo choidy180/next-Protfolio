@@ -8,6 +8,7 @@ import RightMarkBox from '../components/RightMark';
 import Head from 'next/head';
 import { addDoc, collection, getDocs, serverTimestamp, Timestamp } from '@firebase/firestore';
 import { dbService } from '../firebase/firebase';
+import { LeftBottomBox } from '../components/LeftBottomBox';
 
 export interface scrollProps{
   scroll: {top: boolean};
@@ -54,6 +55,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       {/* <LeftTab/> */}
       <RightMarkBox/>
       <Component {...pageProps} {...scroll} />
+      <LeftBottomBox/>
     </>
   )
 }

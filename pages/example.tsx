@@ -12,13 +12,12 @@ const Example: NextPage = () => {
     <Container>
       <AbsoluteBox>
         <AbsoluteMainBox>
-          <div className="box" id={absoluteBoxView ? "" : "right"}>
+          <div className="box" id={absoluteBoxView ? "" : "right"} data-aos="fade-up">
             <div className="wrapper blue">
-              <img className="one" data-aos="flip-left" src="/images/profile/KakaoTalk_Photo_2022-10-04-17-17-18.png" alt="" />
-              <p data-aos="fade-up">안녕하세요</p>
+              <img className="one" src="/images/profile/KakaoTalk_Photo_2022-10-04-17-17-18.png" alt="" />
             </div>
             <div className="wrapper red">
-              <img className="two" data-aos="flip-left" src="/images/profile/KakaoTalk_Photo_2022-10-04-17-05-15.png" alt="" />
+              <img className="two" src="/images/profile/KakaoTalk_Photo_2022-10-04-17-05-15.png" alt="" />
             </div>
           </div>
           <AbsoluteBtnBox>
@@ -28,7 +27,7 @@ const Example: NextPage = () => {
         </AbsoluteMainBox>
         <AbsoluteTitleBack>
           <h2>communicative<br/>developer</h2>
-          <p><b color={absoluteBoxView ? "rgb(116, 185, 255)" : "rgb(162, 155, 254)"}>방문해주셔서 감사합니다</b><br/>웹개발을 전반적으로 다루는 개발 블로그가 되도록 노력하겠습니다</p>
+          <p><b style={ !absoluteBoxView ? {color : "rgb(162, 155, 254)"} : { color :"rgb(116, 185, 255)"}}>방문해주셔서 감사합니다</b><br/>웹개발을 전반적으로 다루는 개발 블로그가 되도록 노력하겠습니다</p>
         </AbsoluteTitleBack>
       </AbsoluteBox>
       <Box color="#FFFFFF">
@@ -78,6 +77,9 @@ const AbsoluteMainBox = styled.div`
     &#right{
       transform: translateX(-500px);
     }
+  }
+  @media (max-width: 1280px) {
+    left: 0;
   }
   .wrapper{
     flex-shrink: 0;
@@ -131,17 +133,29 @@ const AbsoluteTitleBack = styled.div`
   right: 0;
   transform: translateY(-50%);
   width: calc(100% - 680px);
+  @media (max-width: 1280px) {
+    width: calc(100% - 540px);
+  }
   h2{
     position: absolute;
     font-family: 'GmarketSansMedium';
     text-transform: uppercase;
-    font-size: 6em;
-    line-height: 1em;
+    font-weight: bold;
+    font-size: 80px;
+    line-height: 76px;
     letter-spacing: -6px;
     color: #f5f6f9;
     pointer-events: none;
     top: 50%;
     transform: translateY(-50%);
+    @media (max-width: 1400px) {
+      font-size: 60px;
+      line-height: 56px;
+    }
+    @media (max-width: 1280px) {
+      font-size: 48px;
+      line-height: 42px;
+    }
   }
   p{
     position: absolute;
@@ -154,6 +168,15 @@ const AbsoluteTitleBack = styled.div`
       font-size: 44px;
       line-height: 44px;
       color: ${props=>props.color};
+    }
+    @media (max-width: 1400px) {
+      font-size: 18px;
+      line-height: 22px;
+      b{
+        font-size: 36px;
+        line-height: 36px;
+        color: ${props=>props.color};
+      }
     }
   }
 `
