@@ -12,6 +12,7 @@ const LeftTab: NextPage = () => {
           src={"/images/background/âPngtreeâpure watercolor gradient colorful background_964413.jpg"}
           layout="fill"
           objectFit="cover"
+          alt='navTopBackGround'
         />
       </NavTopBg>
       <ProfileBox>
@@ -20,6 +21,7 @@ const LeftTab: NextPage = () => {
             src={"/images/profile/BD7B9E3E-3D35-49F8-B7F6-33EDDF142B02_1_105_c.png"}
             layout="fill"
             objectFit="cover"
+            alt='navProfile'
           />
         </div>
       </ProfileBox>
@@ -27,10 +29,26 @@ const LeftTab: NextPage = () => {
       <SubName>Web Dev</SubName>
       <IconBox>
         <Link href={"/"}>
-          <img src="/images/icons/house.png" alt="" />
+          {/* <img src="/images/icons/house.png" alt="" /> */}
+          <Image
+            src={'/images/icons/house.png'}
+            width={'24px'}
+            height={'24px'}
+            alt='home'
+          />
         </Link>
-        <img src="/images/icons/search.png" alt="" />
-        <img src="/images/icons/programmer.png" alt="" />
+        <Image
+          src={'/images/icons/search.png'}
+          width={'24px'}
+          height={'24px'}
+          alt='search'
+        />
+        <Image
+          src={'/images/icons/programmer.png'}
+          width={'24px'}
+          height={'24px'}
+          alt='programmer'
+        />
       </IconBox>
       <TabBox>
         <MainHead>MAIN</MainHead>
@@ -72,7 +90,6 @@ const LeftTab: NextPage = () => {
           </Link>
         </MainUl>
       </TabBox>
-      {/* <TestTab/> */}
     </Container>
   )
 }
@@ -174,8 +191,6 @@ const IconBox = styled.div`
   margin-top: 18px;
   border-radius: 28px;
   img {
-    width: 24px;
-    height: 24px;
     cursor: pointer;
   }
   img:hover{
