@@ -10,7 +10,7 @@ type ColorProps = {
 
 export const TopNav: FunctionComponent<ColorProps> = () => {
     const isTheme = useRecoilValue(isThemeAtom);
-    const [mbNavView, setMbNavView] = useState(false);
+    const [mbNavView, setMbNavView] = useState(true);
     return(
         <>
             <Container color={isTheme ? 'rgb(116, 185, 255)' : 'rgb(162, 155, 254)'}>
@@ -20,7 +20,7 @@ export const TopNav: FunctionComponent<ColorProps> = () => {
                 <span>미디어</span>
                 <span>고객지원</span>
             </Container>
-            <MbContainer style={mbNavView ? {marginLeft: '100vw'} : {}} color={isTheme ? 'rgb(116, 185, 255)' : 'rgb(162, 155, 254)'}>
+            <MbContainer style={mbNavView ? {marginLeft: '100vw !important'} : {}} color={isTheme ? 'rgb(116, 185, 255)' : 'rgb(162, 155, 254)'}>
                 <BsPlusLg style={mbNavView ? {display: 'none'} : { display: 'block'}} onClick={()=>setMbNavView((e) => !e)}/>
                 <div style={mbNavView ? { display: 'block'} : {display: 'none'}} onClick={()=>setMbNavView((e) => !e)}/>
                 <span>공지사항</span>
