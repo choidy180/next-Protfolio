@@ -18,7 +18,7 @@ const Example: NextPage = () => {
       <TopNav props={absoluteBoxView}/>
       <AbsoluteBox>
         <AbsoluteMainBox> 
-          <div className="box" style={isTheme ? {transform : ''} : {transform: 'translateX(-50%)'}} data-aos="fade-up">
+          <div className="box" style={isTheme ? {transform : 'none'} : {transform: 'translateX(-50%)'}} data-aos="fade-up">
             <div className="wrapper blue">
               <img className="one" src="/images/profile/KakaoTalk_Photo_2022-10-04-17-17-18.png" alt="" />
             </div>

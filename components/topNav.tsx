@@ -21,8 +21,8 @@ export const TopNav: FunctionComponent<ColorProps> = () => {
                 <span>고객지원</span>
             </Container>
             <MbContainer style={mbNavView ? {marginLeft: '100vw'} : {}} color={isTheme ? 'rgb(116, 185, 255)' : 'rgb(162, 155, 254)'}>
-                <BsPlusLg style={mbNavView ? {display: 'none'} : { display: 'block'}} onClick={()=>setMbNavView(false)}/>
-                <div style={mbNavView ? { display: 'block'} : {display: 'none'}} onClick={()=>setMbNavView(true)}/>
+                <BsPlusLg style={mbNavView ? {display: 'none'} : { display: 'block'}} onClick={()=>setMbNavView(true)}/>
+                <div style={mbNavView ? { display: 'block'} : {display: 'none'}} onClick={()=>setMbNavView(false)}/>
                 <span>공지사항</span>
                 <span>가이드</span>
                 <span>커뮤니티</span>
@@ -108,10 +108,6 @@ const MbContainer = styled.div`
         font-size: 28px;
         transform: rotate(45deg);
         cursor: pointer;
-        &.noneDeg{
-            transform: rotate(0);
-            font-weight: bold;
-        }
     }
     div{
         position: fixed;
